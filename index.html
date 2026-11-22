@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#FFFCF6">
+<title>舊金山・優勝美地・Napa 冬日小旅行｜2027.1.12–1.17</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#3E3A39;
+  --coral:#F2A497; --yellow:#F6D27A; --mizu:#A8D3E6; --green:#B9DAA5;
+  --coral-l:#FCE5E0; --yellow-l:#FDF2D2; --mizu-l:#E4F1F7; --green-l:#E8F2E1;
+  --stone:#EDE6DC;
+  --line:3px solid var(--ink);
+  --r:22px;
+  --shadow:4px 4px 0 var(--ink);
+  --nav:60px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Huninn","PingFang TC","Noto Sans TC",system-ui,sans-serif;
+  line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button,input{font:inherit;color:inherit}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+.card{background:#fff;border:var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 固定選單 ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:60;background:var(--paper);border-bottom:var(--line)}
+.top-in{max-width:760px;margin:0 auto;height:var(--nav);display:flex;align-items:center;gap:10px;padding:0 12px}
+.brand{display:flex;align-items:center;gap:6px;text-decoration:none;font-size:18px;white-space:nowrap;flex-shrink:0}
+.brand svg{width:30px;height:30px}
+.links{display:flex;gap:6px;margin-left:auto;overflow-x:auto;scrollbar-width:none;padding:4px 2px}
+.links::-webkit-scrollbar{display:none}
+.links a{
+  flex-shrink:0;text-decoration:none;font-size:14px;padding:4px 12px;border:2.5px solid var(--ink);
+  border-radius:999px;background:#fff;transition:background .2s,transform .2s;
+}
+.links a:hover{transform:translateY(-2px)}
+.links a.on{background:var(--yellow)}
+@media (max-width:440px){.brand span{display:none}.links a{padding:4px 10px;font-size:13.5px}}
+
+section{padding:30px 0 10px;scroll-margin-top:calc(var(--nav) + 12px)}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:23px;margin:0 0 16px;font-weight:normal}
+.sec-title .ico{width:40px;height:40px;flex-shrink:0;border:var(--line);border-radius:14px;display:grid;place-items:center;background:var(--c,var(--yellow))}
+.sec-title .ico svg{width:24px;height:24px}
+.sec-title small{font-size:13px;margin-left:auto;opacity:.75}
+
+/* ---------- 首頁 ---------- */
+#home{padding-top:calc(var(--nav) + 18px)}
+.hero-art{border:var(--line);border-radius:28px;overflow:hidden;background:var(--mizu-l);box-shadow:var(--shadow)}
+.hero-art svg{display:block;width:100%;height:auto}
+.hero-text{text-align:center;padding:22px 4px 6px}
+.pill{display:inline-block;font-size:14px;padding:3px 14px;border:2.5px solid var(--ink);border-radius:999px;background:var(--yellow)}
+h1{font-weight:normal;font-size:clamp(27px,7.4vw,42px);line-height:1.3;margin:12px 0 6px;letter-spacing:.02em}
+h1 .hl{box-shadow:inset 0 -.36em 0 var(--coral-l)}
+.hero-sub{margin:0;font-size:15px;opacity:.85}
+.route-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:14px 0 0}
+.route-chips span{font-size:13.5px;padding:2px 10px;border:2px solid var(--ink);border-radius:999px;background:var(--c)}
+.route-chips i{font-style:normal;align-self:center;font-size:13px}
+
+.count{margin-top:18px;padding:16px 14px 14px;text-align:center;background:var(--coral-l)}
+.count-label{font-size:15px;margin:0 0 10px}
+.count-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cbox{background:#fff;border:var(--line);border-radius:16px;padding:8px 0 4px}
+.cbox b{display:block;font-weight:normal;font-size:clamp(26px,8vw,38px);line-height:1.1;font-variant-numeric:tabular-nums}
+.cbox small{font-size:13px}
+.count-msg{font-size:20px;margin:4px 0}
+
+/* ---------- 航班 ---------- */
+.flights{display:grid;gap:18px}
+@media (min-width:640px){.flights{grid-template-columns:1fr 1fr}}
+.pass{overflow:hidden;position:relative}
+.pass-head{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 16px;background:var(--c);border-bottom:var(--line)}
+.pass-head b{font-weight:normal;font-size:19px;letter-spacing:.04em}
+.who{font-size:13px;padding:1px 10px;border:2px solid var(--ink);border-radius:999px;background:#fff}
+.pass-body{display:grid;grid-template-columns:1fr 1.1fr 1fr;align-items:center;padding:14px 14px 10px;text-align:center}
+.code{font-size:32px;line-height:1.1;letter-spacing:.04em}
+.city{font-size:12.5px;opacity:.8}
+.ptime{font-size:17px;margin-top:2px}
+.route{position:relative;height:34px}
+.route::before{content:"";position:absolute;left:4px;right:4px;top:50%;border-top:3px dashed var(--ink)}
+.route svg{position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px 0 0 -17px;background:#fff;border-radius:50%}
+.route .fly{animation:glide 3.2s ease-in-out infinite}
+.dur{font-size:12.5px;margin-top:2px}
+.pax{display:flex;flex-wrap:wrap;gap:5px;padding:9px 14px 0}
+.pax span{font-size:13px;line-height:1.3;padding:2px 10px;border:2px solid var(--ink);border-radius:999px;background:var(--paper)}
+.pass-foot{position:relative;border-top:3px dashed var(--ink);padding:9px 16px;font-size:13.5px;display:flex;justify-content:space-between;gap:8px;background:var(--paper)}
+.pass-foot::before,.pass-foot::after{content:"";position:absolute;top:-12px;width:20px;height:20px;border-radius:50%;background:var(--paper);border:var(--line)}
+.pass-foot::before{left:-13px}.pass-foot::after{right:-13px}
+
+/* ---------- 每日行程 ---------- */
+.tabs-bar{position:sticky;top:var(--nav);z-index:40;background:var(--paper);margin:0 -16px;padding:10px 16px 12px;border-bottom:2.5px dashed rgba(62,58,57,.35)}
+.tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:6px 2px 4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{
+  flex:1 0 64px;min-width:64px;border:var(--line);border-radius:18px;background:#fff;cursor:pointer;
+  padding:6px 4px 5px;line-height:1.2;display:flex;flex-direction:column;align-items:center;gap:2px;
+  transition:background .2s,box-shadow .2s;
+}
+.tab-d{font-size:19px}.tab-w{font-size:12.5px}
+.tab[aria-selected="true"]{background:var(--c);box-shadow:3px 3px 0 var(--ink);animation:tabJump .45s cubic-bezier(.3,1.6,.5,1) both}
+.tab:focus-visible,.links a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+
+.panel{padding-top:16px}
+.panel.bounce{animation:bounceIn .62s cubic-bezier(.3,1.4,.5,1) both}
+.panel.bounce .ti{animation:pop .5s cubic-bezier(.3,1.5,.5,1) both;animation-delay:calc(var(--i)*55ms + 140ms)}
+
+.dayhead{display:flex;align-items:center;gap:10px;padding:14px 12px 14px 18px;background:var(--cl)}
+.dayhead .txt{flex:1;min-width:0}
+.kicker{font-size:13.5px}
+.dayhead h3{font-weight:normal;font-size:24px;margin:2px 0 4px;line-height:1.3}
+.stay{display:inline-flex;align-items:center;gap:5px;font-size:13.5px;padding:1px 10px;border:2px solid var(--ink);border-radius:999px;background:#fff}
+.stay svg{width:15px;height:15px}
+.dayhead .art{width:118px;height:88px;flex-shrink:0}
+
+.tip{margin:16px 0 4px;padding:12px 14px 12px 14px;border:3px dashed var(--ink);border-radius:18px;background:var(--yellow-l);font-size:14.5px}
+.tip b{font-weight:normal;display:inline-block;font-size:13px;padding:0 9px;margin-right:6px;border:2px solid var(--ink);border-radius:999px;background:var(--yellow)}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 4px;font-size:12.5px;align-items:center}
+
+.tl{list-style:none;margin:16px 0 0;padding:0 0 0 30px;position:relative}
+.tl::before{content:"";position:absolute;left:11px;top:10px;bottom:16px;border-left:3px dashed var(--ink)}
+.ti{position:relative;margin:0 0 16px}
+.dot{position:absolute;left:-30px;top:3px;width:21px;height:21px;border-radius:50%;border:var(--line);background:var(--c)}
+.ti.must .dot{width:25px;height:25px;left:-32px;top:1px}
+.ti-time{display:inline-block;font-size:14px;padding:0 10px;border:2px solid var(--ink);border-radius:999px;background:#fff;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.ti-card{padding:12px 14px;border-radius:18px;box-shadow:3px 3px 0 var(--ink)}
+.ti.must .ti-card{background:var(--cl)}
+.ti-top{display:flex;align-items:flex-start;gap:8px}
+.ti-top h4{flex:1;font-weight:normal;font-size:17.5px;margin:0;line-height:1.4}
+.stamp{flex-shrink:0;font-size:13px;line-height:1;padding:6px 8px;border:2.5px solid var(--ink);border-radius:12px;background:var(--coral);transform:rotate(-7deg);display:inline-flex;align-items:center;gap:3px}
+.stamp svg{width:13px;height:13px}
+.stamp.eat{background:var(--yellow)}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:7px 0 2px}
+.tag{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;line-height:1;padding:4px 9px 4px 6px;border:2px solid var(--ink);border-radius:999px;background:var(--c)}
+.tag svg{width:15px;height:15px}
+.t-plane{--c:var(--mizu)}.t-car{--c:var(--yellow)}.t-ride{--c:var(--coral)}.t-walk{--c:var(--green)}
+.ti-card p{margin:6px 0 0;font-size:14.5px}
+.ti-card .note{font-size:13.5px;padding:6px 10px;border-radius:12px;background:var(--coral-l);border:2px solid var(--ink)}
+.daynav{display:flex;justify-content:space-between;gap:10px;margin:6px 0 0}
+.btn{cursor:pointer;border:var(--line);border-radius:999px;background:#fff;padding:6px 16px;font-size:14.5px;box-shadow:3px 3px 0 var(--ink);transition:transform .15s,box-shadow .15s}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn[disabled]{opacity:.35;cursor:default;box-shadow:none}
+
+/* ---------- 待辦 ---------- */
+.todo-card{padding:16px 14px;background:var(--green-l)}
+.prog{display:flex;align-items:center;gap:10px;font-size:14.5px;margin-bottom:12px}
+.bar{flex:1;height:18px;border:var(--line);border-radius:999px;background:#fff;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--green);border-right:3px solid var(--ink);transition:width .45s cubic-bezier(.3,1.4,.5,1)}
+.bar i.zero{border-right:none}
+.todos{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.todo{display:flex;align-items:center;gap:6px;background:#fff;border:2.5px solid var(--ink);border-radius:16px;padding:2px 6px 2px 4px}
+.todo label{flex:1;display:flex;align-items:center;gap:10px;padding:8px 6px;cursor:pointer;font-size:15px;line-height:1.45}
+.todo input{position:absolute;opacity:0;width:1px;height:1px}
+.box{flex-shrink:0;width:26px;height:26px;border:var(--line);border-radius:9px;background:#fff;display:grid;place-items:center;transition:background .2s}
+.box svg{width:18px;height:18px;fill:none;stroke:var(--ink);stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24;stroke-dashoffset:24;transition:stroke-dashoffset .3s ease}
+.todo input:checked + .box{background:var(--yellow)}
+.todo input:checked + .box svg{stroke-dashoffset:0}
+.todo input:focus-visible + .box{outline:3px solid var(--coral);outline-offset:2px}
+.todo.done .txt{text-decoration:line-through;text-decoration-thickness:2px;opacity:.55}
+.todo.done{background:var(--paper)}
+.del{cursor:pointer;border:2px solid var(--ink);background:var(--coral-l);border-radius:50%;width:28px;height:28px;line-height:1;font-size:16px;flex-shrink:0}
+.add{display:flex;gap:8px;margin-top:12px}
+.add input{flex:1;min-width:0;border:var(--line);border-radius:999px;padding:7px 14px;background:#fff}
+.todo-foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13.5px}
+.linkbtn{cursor:pointer;background:none;border:none;text-decoration:underline;font-size:13.5px;padding:4px}
+.allset{margin:0 0 10px;padding:8px 12px;border:2.5px solid var(--ink);border-radius:14px;background:var(--yellow);text-align:center;font-size:15px}
+
+/* ---------- 住宿 ---------- */
+.stays{display:grid;gap:16px}
+.stay-card{display:flex;overflow:hidden}
+.stay-side{width:74px;flex-shrink:0;background:var(--c);border-right:var(--line);display:grid;place-items:center}
+.stay-side svg{width:48px;height:48px}
+.stay-main{padding:12px 14px;flex:1;min-width:0}
+.stay-main h3{font-weight:normal;font-size:19px;margin:0}
+.addr{font-size:13.5px;opacity:.8;margin:2px 0 6px}
+.nights{display:flex;flex-wrap:wrap;gap:5px;margin:4px 0 6px}
+.nights span{font-size:12.5px;padding:1px 9px;border:2px solid var(--ink);border-radius:999px;background:var(--cl)}
+.stay-main p{margin:4px 0 0;font-size:14px}
+.stay-main a{font-size:13.5px}
+.sub-title{display:flex;align-items:center;gap:8px;font-weight:normal;font-size:19px;margin:28px 0 4px}
+.sub-title::before{content:"";width:14px;height:14px;border-radius:50%;border:2.5px solid var(--ink);background:var(--coral)}
+.sub-note{font-size:13.5px;margin:0 0 6px;opacity:.8}
+.people{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:8px 2px 12px}
+.people::-webkit-scrollbar{display:none}
+.pbtn{flex-shrink:0;display:flex;align-items:center;gap:7px;border:var(--line);border-radius:999px;background:#fff;padding:4px 14px 4px 4px;cursor:pointer;font-size:15px;transition:background .2s,box-shadow .2s}
+.pbtn .av{width:30px;height:30px;border-radius:50%;border:2.5px solid var(--ink);display:grid;place-items:center;background:var(--c);font-size:14px}
+.pbtn[aria-selected="true"]{background:var(--cl);box-shadow:3px 3px 0 var(--ink);animation:tabJump .45s cubic-bezier(.3,1.6,.5,1) both}
+.pf{padding:14px 14px 8px}
+.pf.bounce{animation:bounceIn .6s cubic-bezier(.3,1.4,.5,1) both}
+.pf-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.pf-head .av{width:46px;height:46px;border-radius:50%;border:var(--line);display:grid;place-items:center;background:var(--c);font-size:20px;flex-shrink:0}
+.pf-head h4{font-weight:normal;font-size:20px;margin:0;line-height:1.3}
+.pf-head p{margin:0;font-size:13.5px;opacity:.8}
+.ph{display:inline-block;font-size:12.5px;padding:0 10px;border:2px solid var(--ink);border-radius:999px;background:var(--c);margin:12px 0 4px}
+.leg{display:grid;grid-template-columns:72px 1fr auto;gap:10px;align-items:center;padding:9px 8px;border-radius:14px}
+.leg + .leg{border-top:2px dashed rgba(62,58,57,.3)}
+.leg:not(.trip){border-radius:0}
+.leg.trip{background:var(--yellow-l);border:2px solid var(--ink)}
+.leg.trip + .leg,.leg + .leg.trip{border-top-style:solid}
+.leg .when{font-size:12.5px;line-height:1.3}
+.leg .when b{display:block;font-weight:normal;font-size:19px;font-variant-numeric:tabular-nums}
+.leg .rt{font-size:17px;letter-spacing:.03em;line-height:1.3;min-width:0}
+.leg .rt small{display:block;font-size:12px;letter-spacing:0;opacity:.8}
+.fno{text-align:right;line-height:1.3}
+.fno b{display:inline-block;font-weight:normal;font-size:14px;padding:1px 9px;border:2px solid var(--ink);border-radius:999px;background:var(--c)}
+.fno small{display:block;font-size:11.5px;margin-top:2px}
+.fno .tbd{background:#fff;border-style:dashed}
+.arrv{display:inline-block;margin-top:4px;font-size:13px;letter-spacing:0;line-height:1.3;padding:1px 9px;border:2px solid var(--ink);border-radius:999px;background:#fff;white-space:nowrap}
+.leg-warn{grid-column:1/-1;font-size:13px;padding:5px 10px;border:2px solid var(--ink);border-radius:12px;background:var(--coral-l)}
+.bk{margin:10px 0 4px;padding:10px 12px;border:2.5px dashed var(--ink);border-radius:16px;background:var(--cl)}
+.bk-title{font-size:13px;display:inline-block;padding:0 9px;border:2px solid var(--ink);border-radius:999px;background:var(--c);margin-bottom:6px}
+.bk dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;font-size:14px}
+.bk dt{opacity:.75}.bk dd{margin:0}
+.bk .big{font-size:17px;letter-spacing:.04em}
+.rooms{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0 2px}
+.room{background:#fff;border:2px solid var(--ink);border-radius:12px;padding:4px 8px;font-size:13px;line-height:1.4}
+.room b{font-weight:normal;font-size:15px;letter-spacing:.04em;display:block}
+.warn{margin-top:8px;font-size:13.5px;padding:6px 10px;border:2px solid var(--ink);border-radius:12px;background:var(--coral-l)}
+
+footer{text-align:center;padding:30px 0 40px;font-size:13px}
+footer svg{width:200px;height:auto;display:block;margin:0 auto 6px}
+
+/* ---------- 動畫 ---------- */
+.spin{animation:spin 40s linear infinite;transform-box:fill-box;transform-origin:center}
+.drift{animation:drift 9s ease-in-out infinite}
+.drift.slow{animation-duration:13s;animation-delay:-4s}
+.float{animation:float 3.6s ease-in-out infinite}
+.bob{animation:bob 2.8s ease-in-out infinite}
+.ball{animation:ballHop 2.8s ease-in-out infinite}
+.wave{animation:wave 4s ease-in-out infinite}
+.wave.b{animation-delay:-2s}
+.drive{animation:drive 15s linear infinite}
+.sway{animation:sway 3.4s ease-in-out infinite;transform-box:fill-box;transform-origin:50% 100%}
+.twinkle{animation:twinkle 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.twinkle.d2{animation-delay:-.8s}.twinkle.d3{animation-delay:-1.6s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes drift{0%,100%{transform:translateX(0)}50%{transform:translateX(16px)}}
+@keyframes float{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(4px,-6px) rotate(-2deg)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes ballHop{0%,100%{transform:translateY(0)}45%{transform:translateY(-12px)}60%{transform:translateY(-12px)}}
+@keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes drive{from{transform:translateX(-215px)}to{transform:translateX(260px)}}
+@keyframes sway{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+@keyframes twinkle{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.55);opacity:.6}}
+@keyframes glide{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@keyframes bounceIn{0%{opacity:0;transform:translateY(22px) scale(.96)}55%{opacity:1;transform:translateY(-7px) scale(1.01)}78%{transform:translateY(2px) scale(.997)}100%{opacity:1;transform:none}}
+@keyframes pop{0%{opacity:0;transform:translateY(12px) scale(.97)}60%{opacity:1;transform:translateY(-3px) scale(1.01)}100%{opacity:1;transform:none}}
+@keyframes tabJump{0%{transform:translateY(0)}40%{transform:translateY(-8px)}70%{transform:translateY(1px)}100%{transform:translateY(-2px)}}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .tab[aria-selected="true"]{transform:translateY(-2px)}
+}
+</style>
+</head>
+<body>
+
+<!-- 共用小圖示 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-plane" viewBox="0 0 24 24"><path d="M2.5 12.6 9.6 11l3.6-7.2h2l-1.1 7 6.3 1.1a1.2 1.2 0 0 1 0 2.2l-6.3 1.1 1.1 7h-2L9.6 15 2.5 13.4z" fill="#fff" stroke="#3E3A39" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-car" viewBox="0 0 24 24"><path d="M3 16.5v-3.8l2.2-5a1.6 1.6 0 0 1 1.5-1h10.6a1.6 1.6 0 0 1 1.5 1l2.2 5v3.8z" fill="#fff" stroke="#3E3A39" stroke-width="1.8" stroke-linejoin="round"/><path d="M5.5 12h13" stroke="#3E3A39" stroke-width="1.8"/><circle cx="7.5" cy="17" r="2" fill="#3E3A39"/><circle cx="16.5" cy="17" r="2" fill="#3E3A39"/></symbol>
+    <symbol id="ic-ride" viewBox="0 0 24 24"><rect x="9" y="3.2" width="6" height="3" rx="1" fill="#fff" stroke="#3E3A39" stroke-width="1.6"/><path d="M3 17v-3.6l2.1-4.6a1.6 1.6 0 0 1 1.5-1h10.8a1.6 1.6 0 0 1 1.5 1L21 13.4V17z" fill="#fff" stroke="#3E3A39" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="17.4" r="2" fill="#3E3A39"/><circle cx="16.5" cy="17.4" r="2" fill="#3E3A39"/><circle cx="6.5" cy="13.6" r="1" fill="#3E3A39"/><circle cx="17.5" cy="13.6" r="1" fill="#3E3A39"/></symbol>
+    <symbol id="ic-walk" viewBox="0 0 24 24"><ellipse cx="8" cy="9" rx="3.2" ry="5" fill="#fff" stroke="#3E3A39" stroke-width="1.8" transform="rotate(-12 8 9)"/><ellipse cx="16" cy="14" rx="3.2" ry="5" fill="#fff" stroke="#3E3A39" stroke-width="1.8" transform="rotate(12 16 14)"/></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path d="M12 2.8l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 16.8l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" fill="#fff" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-bowl" viewBox="0 0 24 24"><path d="M3 11h18a9 7 0 0 1-18 0z" fill="#fff" stroke="#3E3A39" stroke-width="2" stroke-linejoin="round"/><path d="M8 7.5q1-2 0-4M12 7.5q1-2 0-4M16 7.5q1-2 0-4" fill="none" stroke="#3E3A39" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="ic-bed" viewBox="0 0 24 24"><path d="M3 18V6M3 13h18v5M21 13a3 3 0 0 0-3-3h-7v3" fill="none" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="10.5" r="1.8" fill="none" stroke="#3E3A39" stroke-width="2"/></symbol>
+    <symbol id="ic-list" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="3" fill="#fff" stroke="#3E3A39" stroke-width="2"/><path d="M8 9l1.5 1.5L12 8M8 15l1.5 1.5L12 14M14 9.5h3M14 15.5h3" fill="none" stroke="#3E3A39" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="ic-cal" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="#fff" stroke="#3E3A39" stroke-width="2"/><path d="M3.5 10h17M8 3v4M16 3v4" stroke="#3E3A39" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="15" r="2" fill="#F2A497" stroke="#3E3A39" stroke-width="1.5"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <nav class="top-in" aria-label="主選單">
+    <a class="brand" href="#home" aria-label="回到首頁">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><rect x="2" y="2" width="26" height="26" rx="9" fill="#F2A497" stroke="#3E3A39" stroke-width="2.5"/><path d="M10 24V8h3v16M17 24V8h3v16" fill="#fff" stroke="#3E3A39" stroke-width="2"/><path d="M4 19h22" stroke="#3E3A39" stroke-width="2.5"/></svg>
+      <span>SFO 冬日小旅行</span>
+    </a>
+    <div class="links">
+      <a href="#home" data-sec="home">首頁</a>
+      <a href="#flights" data-sec="flights">航班</a>
+      <a href="#days" data-sec="days">行程</a>
+      <a href="#todo" data-sec="todo">清單</a>
+      <a href="#stay" data-sec="stay">住宿</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+
+<!-- ========== 首頁 ========== -->
+<section id="home" aria-labelledby="t-home">
+  <div class="hero-art">
+    <svg viewBox="0 0 400 290" role="img" aria-label="插圖：金門大橋、半圓頂山、飛機，以及頂著籃球的海獅">
+      <rect width="400" height="290" fill="#E4F1F7"/>
+      <!-- 太陽 -->
+      <g transform="translate(342 56)">
+        <g class="spin" stroke="#3E3A39" stroke-width="3" stroke-linecap="round">
+          <line y1="-31" y2="-39"/><line y1="-31" y2="-39" transform="rotate(45)"/><line y1="-31" y2="-39" transform="rotate(90)"/><line y1="-31" y2="-39" transform="rotate(135)"/>
+          <line y1="-31" y2="-39" transform="rotate(180)"/><line y1="-31" y2="-39" transform="rotate(225)"/><line y1="-31" y2="-39" transform="rotate(270)"/><line y1="-31" y2="-39" transform="rotate(315)"/>
+        </g>
+        <circle r="23" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+        <path d="M-10-3q3-4 6 0M4-3q3-4 6 0M-5 6q5 5 10 0" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="-13" cy="5" r="3.2" fill="#F2A497"/><circle cx="13" cy="5" r="3.2" fill="#F2A497"/>
+      </g>
+      <!-- 雲 -->
+      <g transform="translate(26 30)"><g class="drift">
+        <path d="M0 20Q0 8 12 8Q16-4 30 0Q40-6 48 6Q60 6 60 18Q60 26 50 26H8Q0 26 0 20Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      </g></g>
+      <g transform="translate(205 22) scale(.78)"><g class="drift slow">
+        <path d="M0 20Q0 8 12 8Q16-4 30 0Q40-6 48 6Q60 6 60 18Q60 26 50 26H8Q0 26 0 20Z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3.6" stroke-linejoin="round"/>
+      </g></g>
+      <!-- 飛機 -->
+      <g transform="translate(112 66)">
+        <path d="M-70 30Q-40 40-8 20" fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-dasharray="5 6" stroke-linecap="round"/>
+        <g class="float">
+          <path d="M4 14 0 0h9l9 11z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+          <rect y="10" width="64" height="17" rx="8.5" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/>
+          <circle cx="30" cy="17" r="2.4" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.6"/><circle cx="38" cy="17" r="2.4" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.6"/><circle cx="46" cy="17" r="2.4" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.6"/>
+          <path d="M56 13.5q5 1 6 4.5h-6z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M24 20h17l-10 17h-9z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        </g>
+      </g>
+      <!-- 山 -->
+      <path d="M-10 206 55 130q7-8 14 0l71 76z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M40 147 55 130q7-8 14 0l15 16-8-3-8 6-8-7-10 7z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M150 206C152 140 186 96 232 94c18-1 26 7 28 18l2 94z" fill="#EDE6DC" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M180 118c14-16 32-23 52-24 16-1 24 5 27 14l-10-2-10 7-12-8-14 9-12-6z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="M252 130v30M244 150v22" stroke="#3E3A39" stroke-width="2" stroke-linecap="round" opacity=".55"/>
+      <path d="M252 206 322 140q7-7 14 0l74 66z" fill="#CFE5C1" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M311 151 322 140q7-7 14 0l12 11-7-2-7 5-7-6-8 6z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.6" stroke-linejoin="round"/>
+      <g fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round">
+        <path d="M138 206l9-24 9 24z"/><path d="M154 206l7-17 7 17z"/><path d="M356 206l9-24 9 24z"/>
+      </g>
+      <!-- 海 -->
+      <rect y="205" width="400" height="85" fill="#A8D3E6"/>
+      <line x1="0" y1="205" x2="400" y2="205" stroke="#3E3A39" stroke-width="3"/>
+      <g fill="none" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round">
+        <g class="wave"><path d="M18 238q8-6 16 0t16 0"/><path d="M168 262q8-6 16 0t16 0"/><path d="M228 232q8-6 16 0t16 0"/></g>
+        <g class="wave b"><path d="M70 270q8-6 16 0t16 0"/><path d="M128 230q8-6 16 0t16 0"/></g>
+      </g>
+      <!-- 金門大橋 -->
+      <g fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round">
+        <path d="M-5 172Q60 192 110 110Q200 200 290 110Q340 192 405 172"/>
+        <path d="M132 130v60M155 144v46M200 155v35M245 144v46M268 130v60M70 160v30M88 140v50M312 140v50M330 160v30" stroke-width="2"/>
+      </g>
+      <g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round">
+        <rect x="101" y="104" width="18" height="120" rx="3" fill="#F2A497"/>
+        <rect x="281" y="104" width="18" height="120" rx="3" fill="#F2A497"/>
+        <g fill="#FFFCF6" stroke-width="2.2"><rect x="105.5" y="114" width="9" height="13" rx="2"/><rect x="105.5" y="136" width="9" height="13" rx="2"/><rect x="105.5" y="158" width="9" height="13" rx="2"/><rect x="285.5" y="114" width="9" height="13" rx="2"/><rect x="285.5" y="136" width="9" height="13" rx="2"/><rect x="285.5" y="158" width="9" height="13" rx="2"/></g>
+      </g>
+      <!-- 小車 -->
+      <g transform="translate(170 0)"><g class="drive">
+        <path d="M5 178l4-8h13l5 8z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="0" y="177" width="31" height="10" rx="4" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/>
+        <circle cx="8" cy="187" r="3.4" fill="#3E3A39"/><circle cx="23" cy="187" r="3.4" fill="#3E3A39"/>
+      </g></g>
+      <rect x="-5" y="189" width="410" height="9" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+      <!-- 海獅 -->
+      <path d="M290 292q2-38 32-40 40-2 56 40z" fill="#EDE6DC" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+      <g class="bob">
+        <path d="M312 262q-4-30 18-40 14-4 18 8 4 18 4 32z" fill="#D8CBBE" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M320 262q-8-12-18-5 4 7 18 7z" fill="#D8CBBE" stroke="#3E3A39" stroke-width="2.6" stroke-linejoin="round"/>
+        <circle cx="338" cy="214" r="12" fill="#D8CBBE" stroke="#3E3A39" stroke-width="3"/>
+        <ellipse cx="349" cy="217" rx="6.5" ry="4.8" fill="#D8CBBE" stroke="#3E3A39" stroke-width="2.5"/>
+        <circle cx="355" cy="215.5" r="2" fill="#3E3A39"/><circle cx="339" cy="210" r="2" fill="#3E3A39"/>
+        <circle cx="335" cy="219" r="3" fill="#F2A497"/>
+        <path d="M352 220l8 2M352 222l7 4" stroke="#3E3A39" stroke-width="1.6" stroke-linecap="round"/>
+      </g>
+      <g class="ball">
+        <circle cx="356" cy="196" r="8.5" fill="#F2A497" stroke="#3E3A39" stroke-width="2.6"/>
+        <path d="M347.5 196h17M356 187.5v17M350 189.5q5 6.5 0 13M362 189.5q-5 6.5 0 13" fill="none" stroke="#3E3A39" stroke-width="1.8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-text">
+    <span class="pill">2027.1.12（二）→ 1.17（日）・6 天 5 夜</span>
+    <h1 id="t-home"><span class="hl">舊金山・優勝美地</span><br>Napa 冬日小旅行</h1>
+    <p class="hero-sub">金門大橋、海獅、NBA、山谷瀑布與酒鄉，一次收集。</p>
+    <div class="route-chips" aria-label="路線">
+      <span style="--c:var(--mizu-l)">拉斯維加斯</span><i>→</i>
+      <span style="--c:var(--coral-l)">舊金山</span><i>→</i>
+      <span style="--c:var(--green-l)">優勝美地</span><i>→</i>
+      <span style="--c:var(--coral-l)">Napa</span><i>→</i>
+      <span style="--c:var(--yellow-l)">拉斯維加斯</span>
+    </div>
+  </div>
+
+  <div class="card count" aria-live="polite">
+    <p class="count-label" id="countLabel">距離 1/12 BR8 台北起飛還有</p>
+    <div class="count-grid" id="countGrid">
+      <div class="cbox"><b id="cd-d">--</b><small>天</small></div>
+      <div class="cbox"><b id="cd-h">--</b><small>時</small></div>
+      <div class="cbox"><b id="cd-m">--</b><small>分</small></div>
+      <div class="cbox"><b id="cd-s">--</b><small>秒</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 航班 ========== -->
+<section id="flights" aria-labelledby="t-flights">
+  <h2 class="sec-title" id="t-flights"><span class="ico" style="--c:var(--mizu)"><svg><use href="#ic-plane"/></svg></span>航班資訊<small>時間皆為出發地當地時間</small></h2>
+  <p class="sub-note">旅行段（拉斯維加斯 ⇄ 舊金山）</p>
+  <div class="flights" id="flightList"></div>
+  <h3 class="sub-title" id="t-people">每個人的班機</h3>
+  <p class="sub-note">點名字切換，標黃色的是這趟 SFO 旅行的航段。時間皆為當地時間；標「約」的抵達時間是依近期時刻表估算，請以電子機票為準。</p>
+  <div class="people" id="people" role="tablist" aria-labelledby="t-people"></div>
+  <div class="card pf" id="pflights" role="tabpanel" aria-live="polite"></div>
+</section>
+
+<!-- ========== 每日行程 ========== -->
+<section id="days" aria-labelledby="t-days">
+  <h2 class="sec-title" id="t-days"><span class="ico" style="--c:var(--coral)"><svg><use href="#ic-cal"/></svg></span>每日行程</h2>
+  <div class="tabs-bar">
+    <div class="tabs" id="tabs" role="tablist" aria-label="選擇日期"></div>
+  </div>
+  <div class="panel" id="panel" role="tabpanel" aria-live="polite"></div>
+</section>
+
+<!-- ========== 待辦清單 ========== -->
+<section id="todo" aria-labelledby="t-todo">
+  <h2 class="sec-title" id="t-todo"><span class="ico" style="--c:var(--green)"><svg><use href="#ic-list"/></svg></span>出發前待辦</h2>
+  <div class="card todo-card">
+    <div class="prog"><span id="progTxt">0 / 0</span><div class="bar" aria-hidden="true"><i id="progBar" class="zero"></i></div></div>
+    <p class="allset" id="allSet" hidden>全部準備好了，出發囉！</p>
+    <ul class="todos" id="todoList"></ul>
+    <form class="add" id="addForm" autocomplete="off">
+      <label class="sr" for="addInput">新增待辦</label>
+      <input id="addInput" maxlength="60" placeholder="新增一項待辦…">
+      <button class="btn" type="submit" style="background:var(--yellow)">加入</button>
+    </form>
+    <div class="todo-foot"><span>勾選狀態會保存在這台裝置的瀏覽器</span><button class="linkbtn" id="resetTodo" type="button">重設清單</button></div>
+  </div>
+</section>
+
+<!-- ========== 住宿 ========== -->
+<section id="stay" aria-labelledby="t-stay">
+  <h2 class="sec-title" id="t-stay"><span class="ico" style="--c:var(--yellow)"><svg><use href="#ic-bed"/></svg></span>住宿資訊</h2>
+  <div class="stays" id="stayList"></div>
+</section>
+
+</main>
+
+<footer>
+  <svg viewBox="0 0 200 60" aria-hidden="true">
+    <path d="M0 50h200" stroke="#3E3A39" stroke-width="3"/>
+    <g class="sway"><path d="M40 50l10-26 10 26z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <g class="sway" style="animation-delay:-1.2s"><path d="M140 50l8-20 8 20z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round"/></g>
+    <g class="bob"><path d="M78 50q-2-14 12-18 10-2 12 6 2 6 2 12z" fill="#D8CBBE" stroke="#3E3A39" stroke-width="2.5"/><circle cx="96" cy="30" r="7.5" fill="#D8CBBE" stroke="#3E3A39" stroke-width="2.5"/><circle cx="97" cy="28" r="1.5" fill="#3E3A39"/><circle cx="95" cy="33" r="2" fill="#F2A497"/></g>
+    <g class="twinkle"><path d="M120 12q1 6 7 7-6 1-7 7-1-6-7-7 6-1 7-7z" fill="#F6D27A" stroke="#3E3A39" stroke-width="2"/></g>
+  </svg>
+  旅途愉快，一路平安！<br>行程依原始行程表整理・2026/11/22 製作
+</footer>
+
+<script>
+(() => {
+  const RM = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const reduce = () => RM.matches;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  /* ---------- 資料 ---------- */
+  const FLIGHTS = [
+    {no:'UA687', date:'1/12（二）', pax:['Ato','Anny','Justin','Justice','Ryan'], from:'LAS', fromN:'拉斯維加斯', to:'SFO', toN:'舊金山', dep:'15:25', arr:'17:14', dur:'1 小時 49 分', c:'mizu', note:'前段：BR8 → UA611', note2:'抵達後回 SFO'},
+    {no:'UA2721', date:'1/12（二）', pax:['光平'], from:'LAS', fromN:'拉斯維加斯', to:'SFO', toN:'舊金山', dep:'17:18', arr:'19:07', dur:'1 小時 49 分', c:'green', note:'前段：BR8 → UA2449', note2:'晚上會合'},
+    {no:'UA687', date:'1/13（三）', pax:['Amber'], from:'LAS', fromN:'拉斯維加斯', to:'SFO', toN:'舊金山', dep:'15:25', arr:'17:14', dur:'1 小時 49 分', c:'coral', note:'前段：BR8 → UA611', note2:'Uber 直接去 Airbnb'},
+    {no:'UA661', date:'1/17（日）', pax:['Ato','Anny','Justin','Justice','Ryan','光平','Amber'], from:'SFO', fromN:'舊金山', to:'LAS', toN:'拉斯維加斯', dep:'14:20', arr:'15:59', dur:'1 小時 39 分', c:'yellow', note:'起飛前先還車', note2:'晚上 Peter Luger'}
+  ];
+
+  const TAG = {
+    plane:{t:'飛機', i:'ic-plane', c:'t-plane'},
+    car:{t:'自駕', i:'ic-car', c:'t-car'},
+    ride:{t:'搭車', i:'ic-ride', c:'t-ride'},
+    walk:{t:'步行', i:'ic-walk', c:'t-walk'}
+  };
+
+  const DAYS = [
+    {iso:'2027-01-12', date:'1/12', wd:'二', c:'mizu', art:'plane', title:'飛抵舊金山', stay:'Redwood City Airbnb',
+     tip:'1/13 晚上才取車，今晚從 SFO 到 Redwood City 的 Airbnb 需要另外叫車。光平 19:07 才落地，接人與入住的順序先講好。',
+     items:[
+      {t:'11:30', title:'台北出發 BR8 → 舊金山', desc:'台北時間 11:30 起飛，同日 06:30 抵達 SFO（美西時間）。Ato、Anny、Justin、Justice、Ryan、光平同班。', tags:['plane']},
+      {t:'10:35', title:'UA611 舊金山 → 拉斯維加斯', desc:'SFO 10:35 起飛，LAS 12:23 抵達。Ato、Anny、Justin、Justice、Ryan 搭乘。', tags:['plane']},
+      {t:'12:30', title:'UA2449 舊金山 → 拉斯維加斯', desc:'SFO 12:30 起飛，約 14:20 抵達 LAS。光平搭乘。', tags:['plane']},
+      {t:'15:25', title:'UA687 拉斯維加斯 → 舊金山', desc:'Ato、Anny、Justin、Justice、Ryan 搭乘；LAS 15:25 起飛，SFO 17:14 抵達。', tags:['plane']},
+      {t:'17:14', title:'抵達 SFO', desc:'回到舊金山，領取行李。', tags:[]},
+      {t:'19:07', title:'光平抵達 SFO', desc:'光平搭 UA2721（17:18 起飛），19:07 抵達。', tags:['plane']},
+      {t:'晚上', title:'入住 Redwood City Airbnb', desc:'今晚還沒有車，從機場叫車前往 Airbnb（9** W******* Road）。', tags:['ride']}
+     ]},
+    {iso:'2027-01-13', date:'1/13', wd:'三', c:'coral', art:'bridge', title:'舊金山市區 × NBA', stay:'Redwood City Airbnb',
+     tip:'2026–27 球季官方賽程顯示，1/13 勇士主場對黃蜂是 19:00（美西時間）開賽，與原表的 20:00 不同，請以門票為準。Amber 不看球、落地後自己搭 Uber 去 Airbnb，記得先把入住方式傳給她。',
+     items:[
+      {t:'08:00–08:30', title:'飯店 → 金門大橋', desc:'直接搭車前往南端的 Golden Gate Bridge Welcome Center 一帶。', tags:['ride']},
+      {t:'08:30–09:15', title:'金門大橋拍照、短暫散步', desc:'以觀景、拍照為主，不安排走完整座橋。', tags:['walk'], must:'go'},
+      {t:'09:15–09:40', title:'金門大橋 → 九曲花街', desc:'搭車到 Lombard St & Hyde St，也就是花街上端。', tags:['ride']},
+      {t:'09:40–10:05', title:'九曲花街 Lombard Street', desc:'從上往下走，到下端再回頭拍彎曲街道，比反方向爬坡輕鬆。', tags:['walk'], must:'go'},
+      {t:'10:05–10:30', title:'九曲花街 → Pier 39', desc:'步行約 20～25 分鐘，途中不另外塞景點。', tags:['walk']},
+      {t:'10:30–11:10', title:'Pier 39 看海獅、逛碼頭', desc:'海獅聚集在碼頭的 K-Dock，進入 Pier 39 後往海邊方向走。', tags:['walk'], must:'go'},
+      {t:'11:10–12:00', title:'Boudin Bakery 早午餐', desc:'從 Pier 39 沿海濱走到 160 Jefferson Street 的漁人碼頭旗艦店，選樓下的 Bakers Hall Café。', tags:['walk'], must:'eat'},
+      {t:'下午', title:'舊金山市區自由活動', desc:'原表為「舊金山市區行…等等」，可依體力彈性安排。', tags:[]},
+      {t:'15:25–17:14', title:'Amber 抵達 SFO', desc:'Amber 搭 UA687（LAS → SFO），17:14 落地；前段為 1/13 的 BR8 → UA611。', tags:['plane']},
+      {t:'17:14 後', title:'Amber 搭 Uber 直接到 Airbnb', desc:'Amber 不去看球，落地後直接前往 Redwood City 的 Airbnb（9** W******* Road）。', tags:['ride']},
+      {t:'19:00', title:'NBA 勇士 vs 黃蜂 @ Chase Center', desc:'建議提前 1～1.5 小時到場。', note:'原表寫 20:00；官方賽程為 19:00 開賽，請以門票為準。', tags:['ride'], must:'go'},
+      {t:'賽後', title:'回 SFO Rental Car Center 租車', desc:'取車後開回 Redwood City Airbnb，與 Amber 會合。', tags:['ride','car']}
+     ]},
+    {iso:'2027-01-14', date:'1/14', wd:'四', c:'green', art:'dome', title:'前進優勝美地', stay:'Yosemite Valley Lodge・4 間房',
+     tip:'門票：我們有 2 台車，每台車各買一張非居民年票（America the Beautiful）$250，共 $500；年票涵蓋同車所有人，不用再付每人 $100 附加費，入園時備好護照。雪鏈：冬季兩台車都一定要帶（四驅也一樣），先確認租車合約能不能上鏈。即時路況電話：<span style="white-space:nowrap">209-372-0200</span>。',
+     items:[
+      {t:'08:00–12:00', title:'出發，前往優勝美地', desc:'保留冬季路況彈性，不要為了趕在中午抵達而加快山路車速。', note:'入園：每台車一張非居民年票 $250（2 台車共 $500），兩台車都要帶雪鏈。', tags:['car']},
+      {t:'12:00–12:30', title:'Tunnel View', desc:'第一個重點觀景台，天氣好時可同框看到 El Capitan、Bridalveil Fall，遠方還有 Half Dome。', tags:['car'], must:'go'},
+      {t:'12:30–13:10', title:'Bridalveil Fall（視結冰狀況）', desc:'短程走到瀑布觀景區；冬季可能非常滑，不適合就直接跳過。', tags:['walk']},
+      {t:'13:10–14:10', title:'午餐、前往 Lodge', desc:'詢問入住與行李安排；不要假設中午已能進房。', note:'行程確認碼 100****A7，共 4 間房（17**LO／LP／LR／LS），訂房人 C***-Y** Lin。', tags:['car']},
+      {t:'14:10–15:00', title:'Lower Yosemite Fall Trail', desc:'走下優勝美地瀑布環線，冬天含拍照抓 45～50 分鐘。', tags:['walk'], must:'go'},
+      {t:'15:00–16:00', title:'Cook’s Meadow Loop', desc:'草甸散步，看 Yosemite Falls、Half Dome 和四周山壁；適合慢慢走、拍團體照。', tags:['walk']},
+      {t:'16:00 起', title:'回 Lodge 入住、休息、晚餐', desc:'不再加開車景點，把冬季天候和走路較慢的餘裕留在這裡。', tags:[]}
+     ]},
+    {iso:'2027-01-15', date:'1/15', wd:'五', c:'mizu', art:'lake', title:'鏡湖晨光，回灣區', stay:'Redwood City Airbnb',
+     tip:'原表下午的 San Francisco Premium Outlets 位在 Livermore，就在回灣區的 I-580 沿線，順路可以停。12:00 只是離開山谷，之後仍在國家公園範圍內，山路一樣慢慢開。',
+     items:[
+      {t:'07:00–07:45', title:'早餐、整理行李', desc:'先把大部分行李收好，減少回程壓力。', tags:[]},
+      {t:'07:45–08:30', title:'前往 Mirror Lake 步道入口', desc:'含開車／接駁、停車與步行銜接的緩衝；依當天交通方式調整。', tags:['car','walk']},
+      {t:'08:30–10:00', title:'Mirror Lake 原路往返', desc:'只走到湖區再回來，不走完整大環線；官方往返約 3.2 公里，冬季預留 1.5 小時。', tags:['walk'], must:'go'},
+      {t:'10:00–11:00', title:'回 Lodge 取行李、退房', desc:'退房時間依訂房規定；若較早，就在早上出門前先辦妥。', tags:['car']},
+      {t:'11:00–11:25', title:'El Capitan Meadow', desc:'停下來仰望酋長岩，感受岩壁的尺度；位於出谷方向的單向 Northside Drive。', tags:['car']},
+      {t:'11:30–11:50', title:'Valley View', desc:'最後一站，從 Merced River 河邊回望山谷，和第一天 Tunnel View 的高處視角不同。', tags:['car'], must:'go'},
+      {t:'約 12:00', title:'離開 Yosemite Valley', desc:'這是離開山谷的時間，不是已經駛出國家公園入口。', tags:['car']},
+      {t:'下午', title:'San Francisco Premium Outlets（選配）', desc:'原表打了問號；位於 Livermore，回程順路，可視時間與體力決定。', tags:['car']},
+      {t:'晚上', title:'回 Redwood City Airbnb', desc:'回到灣區住宿休息。', tags:['car']}
+     ]},
+    {iso:'2027-01-16', date:'1/16', wd:'六', c:'coral', art:'grape', title:'Napa 酒鄉一日', stay:'Redwood City Airbnb',
+     tip:'原表只寫了 Napa，酒莊與品酒時段還沒排定；Napa 多數酒莊需要事先預約品酒。2 台車就要排 2 位不喝酒的駕駛。',
+     items:[
+      {t:'上午', title:'開車前往 Napa Valley', desc:'從 Redwood City 出發，車程約 1.5 小時以上，視週六路況而定。', tags:['car']},
+      {t:'上午', title:'Napa 酒莊巡禮', desc:'依預約時段拜訪酒莊、品酒。', tags:['car'], must:'go'},
+      {t:'下午', title:'Napa（續）', desc:'行程待排，可在酒鄉小鎮散步、喝杯咖啡。', tags:['walk']},
+      {t:'晚上', title:'回 Redwood City Airbnb', desc:'由沒有喝酒的同伴開車。', tags:['car']}
+     ]},
+    {iso:'2027-01-17', date:'1/17', wd:'日', c:'yellow', art:'vegas', title:'回拉斯維加斯', stay:'公司飯店（拉斯維加斯）',
+     tip:'SFO 還車後搭 AirTrain 到航廈，記得預留時間。晚上 7 點 Peter Luger，傍晚 check-in 後別拖太久。',
+     items:[
+      {t:'11:00 前', title:'Airbnb 退房', desc:'11:00 前完成 check out。', tags:[]},
+      {t:'中午', title:'SFO Rental Car Center 還車', desc:'還車後搭 AirTrain 前往航廈。', tags:['car']},
+      {t:'14:20', title:'UA661 舊金山 → 拉斯維加斯', desc:'SFO 14:20 起飛，LAS 15:59 抵達；全員 7 人同班。', tags:['plane']},
+      {t:'傍晚', title:'公司飯店 Check-in', desc:'回到拉斯維加斯。', tags:['ride']},
+      {t:'19:00', title:'Peter Luger 晚餐', desc:'用一份牛排為這趟旅行收尾。', tags:[], must:'eat'}
+     ]}
+  ];
+
+  const STAYS = [
+    {name:'Redwood City Airbnb', addr:'9** W******* Road, Redwood City, CA 94***', c:'mizu', nights:['1/12','1/13','1/15','1/16'], info:'共 4 晚・1/17 11:00 前退房',
+     note:'1/14 住優勝美地；請確認 1/14 那晚是否仍保留房間、行李能否留在 Airbnb。Amber 1/13 會自己先到，入住方式要先傳給她。', art:'city'},
+    {name:'Yosemite Valley Lodge', addr:'9006 Yosemite Lodge Dr, Yosemite National Park, CA', c:'green', nights:['1/14'], info:'1 晚・1/14（四）入住 → 1/15（五）退房',
+     note:'中午抵達時先詢問入住與行李安排，不要假設已經能進房。', link:'https://www.travelyosemite.com/', art:'tree',
+     booking:{
+       itin:'100****A7', guest:'C***-Y** Lin', type:'Traditional Room・2 張雙人床（Double）',
+       rooms:[{no:'17**LO', a:2},{no:'17**LP', a:2},{no:'17**LR', a:2},{no:'17**LS', a:1}],
+       paid:'US$1,067.76（Visa）', phone:'1-888-413-8869',
+       warn:'取消或更改須在入住前 7 天（1/7）前提出，才能退訂金；當天未到會被取消且不退款。'
+     }},
+    {name:'公司飯店', addr:'內華達州 拉斯維加斯', c:'yellow', nights:['1/17'], info:'1/17 起入住',
+     note:'晚上 7 點 Peter Luger。', art:'star'}
+  ];
+
+  const TODO_DEFAULT = [
+    '購買 NBA 門票，並確認開賽時間（官方為 19:00）',
+    '確認 2 台車的租車：1/13 晚取車、1/17 還車',
+    '把 Airbnb 入住方式傳給 Amber（1/13 她會先到）',
+    '帶齊台灣駕照正本＋國際駕照',
+    '2 台車都準備雪鏈，確認租車合約可否上鏈',
+    '買非居民年票 $250／車 × 2 台（共 $500），入園帶護照',
+    '優勝美地 Lodge 4 間房：若要取消或更改，1/7 前通知',
+    '預約 Napa 酒莊品酒時段',
+    '排好 Napa 指定駕駛（2 台車 2 位）',
+    '下載離線地圖（優勝美地山區訊號弱）',
+    '保暖外套、手套、防滑鞋',
+    '出發前一晚查優勝美地路況'
+  ];
+
+  /* ---------- 插圖 ---------- */
+  const S = 'stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"';
+  const ART = {
+    plane:`<g class="drift"><path d="M8 68Q8 58 18 58Q22 48 34 52Q42 46 50 56Q60 56 60 64Q60 72 52 72H14Q8 72 8 68Z" fill="#FFFCF6" ${S}/></g>
+      <g transform="translate(44 18)"><g class="float">
+      <path d="M4 14 0 0h9l9 11z" fill="#F2A497" ${S}/><rect y="10" width="62" height="16" rx="8" fill="#FFFCF6" ${S}/>
+      <circle cx="30" cy="17" r="2.3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.5"/><circle cx="38" cy="17" r="2.3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.5"/><circle cx="46" cy="17" r="2.3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.5"/>
+      <path d="M24 19h16l-10 16h-8z" fill="#F2A497" ${S}/></g></g>`,
+    bridge:`<path d="M-2 52Q20 60 36 16Q70 74 122 44" fill="none" stroke="#3E3A39" stroke-width="2.6"/>
+      <rect x="28" y="10" width="16" height="66" rx="3" fill="#F2A497" ${S}/>
+      <rect x="32" y="18" width="8" height="11" rx="2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/><rect x="32" y="36" width="8" height="11" rx="2" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/>
+      <rect x="-3" y="60" width="126" height="7" fill="#F2A497" ${S}/>
+      <g class="ball"><circle cx="90" cy="34" r="13" fill="#F6D27A" ${S}/>
+      <path d="M77 34h26M90 21v26M81 25q8 9 0 18M99 25q-8 9 0 18" fill="none" stroke="#3E3A39" stroke-width="2"/></g>`,
+    dome:`<g transform="translate(98 20)"><g class="spin" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"><line y1="-12" y2="-17"/><line y1="-12" y2="-17" transform="rotate(60)"/><line y1="-12" y2="-17" transform="rotate(120)"/><line y1="-12" y2="-17" transform="rotate(180)"/><line y1="-12" y2="-17" transform="rotate(240)"/><line y1="-12" y2="-17" transform="rotate(300)"/></g><circle r="9" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.6"/></g>
+      <path d="M8 78C10 46 30 24 58 22c10-1 15 4 16 12l2 44z" fill="#EDE6DC" ${S}/>
+      <path d="M26 38c8-9 18-14 32-15 9-1 14 3 15 9l-6-1-6 4-7-5-8 5-7-3z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"/>
+      <g class="sway"><path d="M86 78l9-26 9 26z" fill="#B9DAA5" ${S}/></g>
+      <g class="sway" style="animation-delay:-1.4s"><path d="M102 78l7-18 7 18z" fill="#B9DAA5" ${S}/></g>
+      <path d="M0 78h120" stroke="#3E3A39" stroke-width="3"/>`,
+    lake:`<path d="M6 46 38 14l18 18 14-14 44 28z" fill="#B9DAA5" ${S}/>
+      <path d="M30 22l8-8 8 8-4-1-4 3-4-3z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.2" stroke-linejoin="round"/>
+      <rect x="0" y="46" width="120" height="40" fill="#A8D3E6"/>
+      <path d="M6 46 38 74l18-16 14 12 44-24z" fill="#D5EAE6"/>
+      <path d="M0 46h120" stroke="#3E3A39" stroke-width="3"/>
+      <g class="wave" fill="none" stroke="#3E3A39" stroke-width="2.4" stroke-linecap="round"><path d="M14 64q6-5 12 0t12 0"/><path d="M76 76q6-5 12 0t12 0"/></g>`,
+    grape:`<path d="M44 14q4-8 12-6" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>
+      <path d="M48 14q12-10 22 0-10 8-22 0z" fill="#B9DAA5" ${S}/>
+      <g fill="#B9DAA5" stroke="#3E3A39" stroke-width="2.6"><circle cx="34" cy="26" r="7.5"/><circle cx="48" cy="26" r="7.5"/><circle cx="62" cy="26" r="7.5"/><circle cx="41" cy="39" r="7.5"/><circle cx="55" cy="39" r="7.5"/><circle cx="48" cy="52" r="7.5"/></g>
+      <g class="sway"><path d="M82 30h28q0 24-14 26-14-2-14-26z" fill="#FFFCF6" ${S}/>
+      <path d="M83.5 40h25q-2 14-12.5 15.5Q85 54 83.5 40z" fill="#F2A497"/>
+      <path d="M82 30h28q0 24-14 26-14-2-14-26z" fill="none" ${S}/>
+      <path d="M96 56v16M86 74h20" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/></g>`,
+    vegas:`<g class="twinkle"><path d="M20 6q1.5 8 9 9-7.5 1-9 9-1.5-8-9-9 7.5-1 9-9z" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.2"/></g>
+      <g class="twinkle d2"><path d="M104 10q1 6 7 7-6 1-7 7-1-6-7-7 6-1 7-7z" fill="#F2A497" stroke="#3E3A39" stroke-width="2.2"/></g>
+      <g class="twinkle d3"><path d="M64 4q1 5 6 6-5 1-6 6-1-5-6-6 5-1 6-6z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.2"/></g>
+      <g ${S}><rect x="6" y="50" width="20" height="30" fill="#A8D3E6"/><rect x="28" y="38" width="24" height="42" fill="#F6D27A"/><rect x="54" y="56" width="16" height="24" fill="#F2A497"/><rect x="72" y="44" width="22" height="36" fill="#B9DAA5"/><rect x="96" y="58" width="20" height="22" fill="#FFFCF6"/></g>
+      <g fill="#FFFCF6" stroke="#3E3A39" stroke-width="1.8"><rect x="34" y="46" width="5" height="6"/><rect x="42" y="46" width="5" height="6"/><rect x="34" y="58" width="5" height="6"/><rect x="42" y="58" width="5" height="6"/><rect x="78" y="52" width="4" height="6"/><rect x="85" y="52" width="4" height="6"/></g>
+      <g transform="translate(70 18) scale(.55)"><g class="float"><path d="M4 14 0 0h9l9 11z" fill="#F2A497" ${S}/><rect y="10" width="62" height="16" rx="8" fill="#FFFCF6" ${S}/><path d="M24 19h16l-10 16h-8z" fill="#F2A497" ${S}/></g></g>`,
+    city:`<g ${S}><rect x="8" y="22" width="14" height="30" rx="2" fill="#fff"/><rect x="24" y="12" width="16" height="40" rx="2" fill="#FFFCF6"/></g><g fill="#A8D3E6" stroke="#3E3A39" stroke-width="1.6"><rect x="28" y="18" width="3.5" height="5"/><rect x="33" y="18" width="3.5" height="5"/><rect x="28" y="28" width="3.5" height="5"/><rect x="33" y="28" width="3.5" height="5"/><rect x="12" y="28" width="6" height="4"/><rect x="12" y="36" width="6" height="4"/></g>`,
+    tree:`<g class="sway"><path d="M14 44l10-30 10 30z" fill="#fff" ${S}/></g><path d="M24 44v6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/>`,
+    star:`<g class="twinkle"><path d="M24 6q2 14 16 16-14 2-16 16-2-14-16-16 14-2 16-16z" fill="#fff" ${S}/></g>`
+  };
+
+  /* ---------- 航班 ---------- */
+  $('#flightList').innerHTML = FLIGHTS.map(f => `
+    <article class="card pass" style="--c:var(--${f.c})" aria-label="${f.no} ${f.date} ${f.from} 到 ${f.to}">
+      <div class="pass-head"><b>${f.no}</b><span>${f.date}</span><span class="who">${f.pax.length === 7 ? '全員 7 人' : f.pax.length + ' 人'}</span></div>
+      <div class="pax" aria-label="乘客">${f.pax.map(n => `<span>${n}</span>`).join('')}</div>
+      <div class="pass-body">
+        <div><div class="code">${f.from}</div><div class="city">${f.fromN}</div><div class="ptime">${f.dep}</div></div>
+        <div><div class="route"><svg viewBox="0 0 24 24" aria-hidden="true"><g class="fly"><use href="#ic-plane"/></g></svg></div><div class="dur">${f.dur}</div></div>
+        <div><div class="code">${f.to}</div><div class="city">${f.toN}</div><div class="ptime">${f.arr} 抵達</div></div>
+      </div>
+      <div class="pass-foot"><span>${f.note}</span><span>${f.note2}</span></div>
+    </article>`).join('');
+
+  /* ---------- 每個人的班機 ---------- */
+  const CITY = {TPE:'台北', SFO:'舊金山', LAS:'拉斯維加斯'};
+  const AIR = {BR:{n:'長榮航空', c:'var(--green)'}, UA:{n:'聯合航空', c:'var(--mizu)'}};
+  const PHASE = {out:{t:'台灣 → 美國', c:'var(--mizu-l)'}, trip:{t:'SFO 旅行段', c:'var(--yellow)'}, home:{t:'回台灣', c:'var(--green-l)'}};
+  // arr：抵達時間（跨日時含日期）；est：依近期時刻表與飛行時間估算；warn：提醒
+  const leg = (ph, d, no, from, to, dep, arr, o = {}) => ({ph, d, no, from, to, dep, arr, ...o});
+  const homeLegs = [leg('trip','1/17（日）','UA661','SFO','LAS','14:20','15:59'), leg('home','1/22（五）','UA2356','LAS','SFO','07:00','08:50', {est:true}), leg('home','1/22（五）','BR7','SFO','TPE','12:00','1/23 18:00')];
+  const ROUTES = {
+    main:[leg('out','1/12（二）','BR8','TPE','SFO','11:30','06:30'), leg('out','1/12（二）','UA611','SFO','LAS','10:35','12:23'), leg('trip','1/12（二）','UA687','LAS','SFO','15:25','17:14'), ...homeLegs],
+    kp:[leg('out','1/12（二）','BR8','TPE','SFO','11:30','06:30'), leg('out','1/12（二）','UA2449','SFO','LAS','12:30','14:20', {est:true}), leg('trip','1/12（二）','UA2721','LAS','SFO','17:18','19:07'),
+        leg('trip','1/17（日）','UA661','SFO','LAS','14:20','15:59'), leg('home','1/21（四）','UA2721','LAS','SFO','17:18','19:07'),
+        leg('home','1/21（四）','BR27','SFO','TPE','23:30','1/23 05:35', {est:true})],
+    amber:[leg('out','1/13（三）','BR8','TPE','SFO','11:30','06:30'), leg('out','1/13（三）','UA611','SFO','LAS','10:35','12:23'), leg('trip','1/13（三）','UA687','LAS','SFO','15:25','17:14'), ...homeLegs]
+  };
+  const PEOPLE = [
+    {n:'Ato', r:'main', c:'coral'}, {n:'Anny', r:'main', c:'yellow'}, {n:'Justin', r:'main', c:'mizu'},
+    {n:'Justice', r:'main', c:'green'}, {n:'Ryan', r:'main', c:'coral'}, {n:'光平', r:'kp', c:'yellow'}, {n:'Amber', r:'amber', c:'mizu'}
+  ];
+  const peopleEl = $('#people'), pfEl = $('#pflights');
+  peopleEl.innerHTML = PEOPLE.map((p, i) => `
+    <button class="pbtn" type="button" role="tab" id="pp-${i}" aria-controls="pflights" aria-selected="false" tabindex="-1" data-p="${i}" style="--c:var(--${p.c});--cl:var(--${p.c}-l)">
+      <span class="av" aria-hidden="true">${p.n.slice(0,1)}</span>${p.n}</button>`).join('');
+
+  function personHTML(p){
+    const mates = PEOPLE.filter(o => o !== p && o.r === p.r).map(o => o.n);
+    const legs = ROUTES[p.r];
+    let last = '', html = '';
+    legs.forEach(l => {
+      if (l.ph !== last){ html += `<span class="ph" style="--c:${PHASE[l.ph].c}">${PHASE[l.ph].t}</span>`; last = l.ph; }
+      const a = AIR[l.no.slice(0,2)];
+      html += `<div class="leg ${l.ph === 'trip' ? 'trip' : ''}">
+        <div class="when">${l.d}<b>${l.dep}</b></div>
+        <div class="rt">${l.from} → ${l.to}<small>${CITY[l.from]} → ${CITY[l.to]}</small>
+          <span class="arrv">抵達 ${l.est ? '約 ' : ''}${l.arr}</span></div>
+        <div class="fno"><b class="${l.warn ? 'tbd' : ''}" style="--c:${a.c}">${l.no}</b><small>${a.n}</small></div>
+        ${l.warn ? `<div class="leg-warn">${l.warn}</div>` : ''}
+      </div>`;
+    });
+    return `<div class="pf-head"><span class="av" style="--c:var(--${p.c})" aria-hidden="true">${p.n.slice(0,1)}</span>
+      <div><h4>${p.n} 的班機</h4><p>${p.r === 'main' ? '全程同班：' + mates.join('、') : p.r === 'kp' ? '1/12 的 BR8 和大家同班，之後轉 UA2449、UA2721；1/17 與全員同班，回程提早一天（1/21）' : '晚一天（1/13）出發，1/17 起全員同班'}</p></div></div>${html}`;
+  }
+  const PKEY = 'sfo-trip-2027-person';
+  let curP = -1;
+  function showPerson(i, {anim = true, focus = false} = {}){
+    if (i < 0 || i >= PEOPLE.length) return;
+    curP = i;
+    peopleEl.querySelectorAll('.pbtn').forEach((b, k) => { b.setAttribute('aria-selected', k === i); b.tabIndex = k === i ? 0 : -1; });
+    const btn = $('#pp-' + i);
+    pfEl.setAttribute('aria-labelledby', 'pp-' + i);
+    pfEl.innerHTML = personHTML(PEOPLE[i]);
+    pfEl.classList.remove('bounce');
+    if (anim && !reduce()){ void pfEl.offsetWidth; pfEl.classList.add('bounce'); }
+    peopleEl.scrollTo({left: btn.offsetLeft - peopleEl.clientWidth / 2 + btn.clientWidth / 2, behavior: reduce() ? 'auto' : 'smooth'});
+    if (focus) btn.focus({preventScroll:true});
+    try { localStorage.setItem(PKEY, String(i)); } catch(_) {}
+  }
+  peopleEl.addEventListener('click', e => { const b = e.target.closest('.pbtn'); if (b) showPerson(+b.dataset.p); });
+  peopleEl.addEventListener('keydown', e => {
+    const m = {ArrowRight:1, ArrowLeft:-1}[e.key];
+    if (m){ e.preventDefault(); showPerson((curP + m + PEOPLE.length) % PEOPLE.length, {focus:true}); }
+  });
+  let savedP = 0;
+  try { const v = parseInt(localStorage.getItem(PKEY), 10); if (v >= 0 && v < PEOPLE.length) savedP = v; } catch(_) {}
+  showPerson(savedP, {anim:false});
+
+  /* ---------- 每日行程 ---------- */
+  const tabs = $('#tabs'), panel = $('#panel');
+  tabs.innerHTML = DAYS.map((d, i) => `
+    <button class="tab" role="tab" id="tab-${i}" aria-controls="panel" aria-selected="false" tabindex="-1" data-i="${i}" style="--c:var(--${d.c})">
+      <span class="tab-d">${d.date}</span><span class="tab-w">週${d.wd}</span>
+    </button>`).join('');
+
+  const tagHTML = tags => tags.length ? `<div class="tags">${tags.map(k => `<span class="tag ${TAG[k].c}"><svg aria-hidden="true"><use href="#${TAG[k].i}"/></svg>${TAG[k].t}</span>`).join('')}</div>` : '';
+
+  function dayHTML(d, i){
+    const items = d.items.map((it, k) => `
+      <li class="ti ${it.must ? 'must' : ''}" style="--i:${k};--c:var(--${it.must ? d.c : 'paper'});--cl:var(--${d.c}-l)">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="ti-time">${it.t}</span>
+        <div class="card ti-card">
+          <div class="ti-top"><h4>${it.title}</h4>${it.must ? `<span class="stamp ${it.must}"><svg aria-hidden="true"><use href="#${it.must === 'eat' ? 'ic-bowl' : 'ic-star'}"/></svg>${it.must === 'eat' ? '必吃' : '必去'}</span>` : ''}</div>
+          ${tagHTML(it.tags)}
+          <p>${it.desc}</p>
+          ${it.note ? `<p class="note">注意：${it.note}</p>` : ''}
+        </div>
+      </li>`).join('');
+    return `
+      <div class="card dayhead" style="--cl:var(--${d.c}-l)">
+        <div class="txt">
+          <div class="kicker">Day ${i + 1}・${d.date}（${d.wd}）</div>
+          <h3>${d.title}</h3>
+          <span class="stay"><svg aria-hidden="true"><use href="#ic-bed"/></svg>${d.stay}</span>
+        </div>
+        <svg class="art" viewBox="0 0 120 86" aria-hidden="true">${ART[d.art]}</svg>
+      </div>
+      <div class="tip"><b>小提醒</b>${d.tip}</div>
+      <div class="legend" aria-label="圖例">
+        ${['plane','car','ride','walk'].map(k => `<span class="tag ${TAG[k].c}"><svg aria-hidden="true"><use href="#${TAG[k].i}"/></svg>${TAG[k].t}</span>`).join('')}
+      </div>
+      <ol class="tl">${items}</ol>
+      <div class="daynav">
+        <button class="btn" type="button" data-go="${i - 1}" ${i === 0 ? 'disabled' : ''}>← 前一天</button>
+        <button class="btn" type="button" data-go="${i + 1}" ${i === DAYS.length - 1 ? 'disabled' : ''}>下一天 →</button>
+      </div>`;
+  }
+
+  let cur = -1;
+  function show(i, {anim = true, focus = false, scroll = false} = {}){
+    if (i < 0 || i >= DAYS.length) return;
+    cur = i;
+    tabs.querySelectorAll('.tab').forEach((b, k) => {
+      const on = k === i;
+      b.setAttribute('aria-selected', on);
+      b.tabIndex = on ? 0 : -1;
+    });
+    const btn = $('#tab-' + i);
+    panel.setAttribute('aria-labelledby', 'tab-' + i);
+    panel.innerHTML = dayHTML(DAYS[i], i);
+    panel.classList.remove('bounce');
+    if (anim && !reduce()){ void panel.offsetWidth; panel.classList.add('bounce'); }
+    tabs.scrollTo({left: btn.offsetLeft - tabs.clientWidth / 2 + btn.clientWidth / 2, behavior: reduce() ? 'auto' : 'smooth'});
+    if (focus) btn.focus({preventScroll:true});
+    if (scroll){
+      const top = $('#days').getBoundingClientRect().top;
+      if (top < 0) window.scrollTo({top: window.scrollY + top - 68, behavior: reduce() ? 'auto' : 'smooth'});
+    }
+  }
+  tabs.addEventListener('click', e => { const b = e.target.closest('.tab'); if (b) show(+b.dataset.i); });
+  tabs.addEventListener('keydown', e => {
+    const map = {ArrowRight:1, ArrowLeft:-1};
+    if (map[e.key]){ e.preventDefault(); show((cur + map[e.key] + DAYS.length) % DAYS.length, {focus:true}); }
+    if (e.key === 'Home'){ e.preventDefault(); show(0, {focus:true}); }
+    if (e.key === 'End'){ e.preventDefault(); show(DAYS.length - 1, {focus:true}); }
+  });
+  panel.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if (b && !b.disabled) show(+b.dataset.go, {scroll:true}); });
+
+  // 旅行期間自動跳到當天（美西日期）
+  let startIdx = 0;
+  try {
+    const today = new Intl.DateTimeFormat('en-CA', {timeZone:'America/Los_Angeles', year:'numeric', month:'2-digit', day:'2-digit'}).format(new Date());
+    const hit = DAYS.findIndex(d => d.iso === today);
+    if (hit >= 0) startIdx = hit;
+  } catch(_) {}
+  show(startIdx, {anim:false});
+
+  /* ---------- 倒數 ---------- */
+  const START = new Date('2027-01-12T11:30:00+08:00');
+  const END = new Date('2027-01-17T23:59:00-08:00');
+  const pad = n => String(n).padStart(2, '0');
+  function tick(){
+    const now = new Date(), diff = START - now;
+    if (diff > 0){
+      const s = Math.floor(diff / 1000);
+      $('#cd-d').textContent = Math.floor(s / 86400);
+      $('#cd-h').textContent = pad(Math.floor(s % 86400 / 3600));
+      $('#cd-m').textContent = pad(Math.floor(s % 3600 / 60));
+      $('#cd-s').textContent = pad(s % 60);
+      return;
+    }
+    clearInterval(timer);
+    $('#countGrid').hidden = true;
+    $('#countLabel').hidden = true;
+    const msg = document.createElement('p');
+    msg.className = 'count-msg';
+    msg.textContent = now < END ? `旅行進行中！今天是 Day ${startIdx + 1}，玩得開心。` : '旅程圓滿結束，下次再出發！';
+    $('.count').appendChild(msg);
+  }
+  const timer = setInterval(tick, 1000); tick();
+
+  /* ---------- 待辦清單 ---------- */
+  const KEY = 'sfo-trip-2027-todo-v4';
+  const fresh = () => TODO_DEFAULT.map((t, k) => ({id:'d' + k, text:t, done:false}));
+  let stored;
+  try { stored = JSON.parse(localStorage.getItem(KEY)); } catch(_) {}
+  if (!Array.isArray(stored)) stored = [];
+  // 預設項目以文字比對保留勾選狀態，清單內容更新時不會清空
+  let todos = fresh().map(t => ({...t, done: stored.some(o => !o.custom && o.text === t.text && o.done)}))
+    .concat(stored.filter(o => o.custom));
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(todos)); } catch(_) {} };
+
+  function renderTodo(){
+    $('#todoList').innerHTML = todos.map(t => `
+      <li class="todo ${t.done ? 'done' : ''}">
+        <label><input type="checkbox" data-id="${t.id}" ${t.done ? 'checked' : ''}>
+          <span class="box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+          <span class="txt">${esc(t.text)}</span></label>
+        ${t.custom ? `<button class="del" type="button" data-del="${t.id}" aria-label="刪除「${esc(t.text)}」">×</button>` : ''}
+      </li>`).join('');
+    const done = todos.filter(t => t.done).length, total = todos.length;
+    $('#progTxt').textContent = `${done} / ${total}`;
+    const bar = $('#progBar');
+    bar.style.width = total ? (done / total * 100) + '%' : '0';
+    bar.classList.toggle('zero', done === 0);
+    $('#allSet').hidden = !(total && done === total);
+  }
+  $('#todoList').addEventListener('change', e => {
+    const t = todos.find(x => x.id === e.target.dataset.id);
+    if (!t) return;
+    t.done = e.target.checked;
+    e.target.closest('.todo').classList.toggle('done', t.done);
+    save();
+    const done = todos.filter(x => x.done).length;
+    $('#progTxt').textContent = `${done} / ${todos.length}`;
+    $('#progBar').style.width = (done / todos.length * 100) + '%';
+    $('#progBar').classList.toggle('zero', done === 0);
+    $('#allSet').hidden = done !== todos.length;
+  });
+  $('#todoList').addEventListener('click', e => {
+    const b = e.target.closest('[data-del]'); if (!b) return;
+    todos = todos.filter(t => t.id !== b.dataset.del); save(); renderTodo();
+  });
+  $('#addForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = $('#addInput').value.trim(); if (!v) return;
+    todos.push({id:'c' + Date.now(), text:v, done:false, custom:true});
+    $('#addInput').value = ''; save(); renderTodo();
+  });
+  $('#resetTodo').addEventListener('click', () => {
+    if (window.confirm('要把清單恢復成預設內容嗎？（自訂項目與勾選會清除）')){ todos = fresh(); save(); renderTodo(); }
+  });
+  renderTodo();
+
+  /* ---------- 住宿 ---------- */
+  $('#stayList').innerHTML = STAYS.map(s => `
+    <article class="card stay-card" style="--c:var(--${s.c});--cl:var(--${s.c}-l)">
+      <div class="stay-side"><svg viewBox="0 0 48 56" aria-hidden="true">${ART[s.art]}</svg></div>
+      <div class="stay-main">
+        <h3>${s.name}</h3>
+        <div class="addr">${s.addr}</div>
+        <div class="nights">${s.nights.map(n => `<span>${n} 入住</span>`).join('')}</div>
+        <p>${s.info}</p>
+        <p>${s.note}</p>
+        ${s.booking ? `<div class="bk"><span class="bk-title">訂房明細</span>
+          <dl>
+            <dt>行程確認碼</dt><dd class="big">${s.booking.itin}</dd>
+            <dt>訂房人</dt><dd>${s.booking.guest}</dd>
+            <dt>房型</dt><dd>${s.booking.type}</dd>
+            <dt>房間數</dt><dd>${s.booking.rooms.length} 間・共 ${s.booking.rooms.reduce((n, r) => n + r.a, 0)} 位大人</dd>
+            <dt>已付金額</dt><dd>${s.booking.paid}</dd>
+            <dt>訂房專線</dt><dd><a href="tel:${s.booking.phone.replace(/-/g,'')}">${s.booking.phone}</a></dd>
+          </dl>
+          <div class="rooms">${s.booking.rooms.map((r, k) => `<div class="room">房間 ${k + 1}<b>${r.no}</b>大人 ${r.a} 位</div>`).join('')}</div>
+          <div class="warn">${s.booking.warn}</div>
+        </div>` : ''}
+        ${s.link ? `<p><a href="${s.link}" target="_blank" rel="noopener">${s.linkText || '官方網站 ↗'}</a></p>` : ''}
+      </div>
+    </article>`).join('');
+
+  /* ---------- 選單高亮 ---------- */
+  const links = [...document.querySelectorAll('.links a')];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting){
+        links.forEach(a => a.classList.toggle('on', a.dataset.sec === en.target.id));
+        const a = links.find(a => a.dataset.sec === en.target.id);
+        if (a) a.parentElement.scrollTo({left: a.offsetLeft - 40, behavior: reduce() ? 'auto' : 'smooth'});
+      }
+    });
+  }, {rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section').forEach(s => io.observe(s));
+})();
+</script>
+</body>
+</html>
